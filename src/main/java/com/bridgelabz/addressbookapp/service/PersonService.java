@@ -1,13 +1,13 @@
 package com.bridgelabz.addressbookapp.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bridgelabz.addressbookapp.dto.PersonDTO;
-import com.bridgelabz.addressbookapp.model.Person;
+
+import com.bridgelabz.addressbookapp.model.PersonData;
 import com.bridgelabz.addressbookapp.repository.IPersonRepository;
 
 @Service
@@ -21,9 +21,9 @@ public class PersonService implements IPersonService {
 	 * @return : PersonData
 	 */
 	@Override
-	public Person createPersonData(PersonDTO personDTO) {
-		Person contactData = null;
-		contactData = new Person(1, personDTO);
+	public PersonData createPersonData(PersonDTO personDTO) {
+		PersonData contactData = null;
+		contactData = new PersonData(personDTO);
 		return personRepository.save(contactData);
 	}
 
@@ -32,34 +32,33 @@ public class PersonService implements IPersonService {
 	 * @return : PersonData
 	 */
 	@Override
-	public Person updatePersonDta(long id, PersonDTO personDTO) {
-		Person person = this.getPersonById(id);
+	public PersonData updatePersonDta(int id, PersonDTO personDTO) {
+		PersonData personData = this.getPersonDataById(id);
 		personData.updatePersonData(personDTO);
-		return personRepository.save(person);
+		return personRepository.save(personData);
 	}
 
 	/**
-	 * @param PersonDTO
 	 * @return : PersonData
 	 */
 	@Override
-	public List<Person> getPersonData() {
+	public List<PersonData> getPersonData() {
 		return personRepository.findAll();
-	}
+	}		
 
 	/**
-	 * @param PersonDTO
+	 * @param id
 	 * @return : PersonData
 	 */
 	@Override
-	public Person getPersonById(long id) {
-		return personRepository.findById(id);
+	public PersonData getPersonDataById(int id) {
+		return personRepository.findById((long) id).get();
 	}
 
 	@Override
-	public void deletePersonData(long id) {
-		Person person = this.getPersonById(id);
-		personRepository.delete(person);
+	public void deletePersonData(int id) {
+		PersonData personData = this.getPersonDataById(id);
+		personRepository.delete(personData);
 	}
 
 }

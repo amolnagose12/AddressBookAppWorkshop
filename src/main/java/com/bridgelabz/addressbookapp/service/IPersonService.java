@@ -5,18 +5,19 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.bridgelabz.addressbookapp.dto.PersonDTO;
-import com.bridgelabz.addressbookapp.model.Person;
+import com.bridgelabz.addressbookapp.model.PersonData;
+
 
 @Service
 public interface IPersonService {
 
-	Person createPersonData(PersonDTO personDTO);
+	PersonData createPersonData(PersonDTO personDTO);
 
-	Person updatePersonDta(long id, PersonDTO personDTO);
+	PersonData updatePersonDta(int id, PersonDTO personDTO);
 
-	List<Person> getPersonData();
+	List<PersonData> getPersonData();
 
-	Person getPersonById(long id);
+	PersonData getPersonDataById(int id);
 
-	void deletePersonData(long id);
+	void deletePersonData(int id);
 }
