@@ -26,6 +26,7 @@ public class PersonController {
 	private IPersonService personService;
 
 	/**
+	 * Add person details in DB
 	 * @param PersonDTO
 	 * @return : PersonData and HttpStatus
 	 */
@@ -38,11 +39,13 @@ public class PersonController {
 	}
 
 	/**
+	 * update person detail by id 
 	 * @param : ContactId and PersonDTO
 	 * @return : ResponseDTO
 	 */
 	@PutMapping("/Update/{ContactId}")
-	public ResponseEntity<ResponseDTO> updateAddressBookData(@PathVariable("ContactId") int ContactId,@RequestBody PersonDTO personDTO) {
+	public ResponseEntity<ResponseDTO> updateAddressBookData(@PathVariable("ContactId") int ContactId,
+			@RequestBody PersonDTO personDTO) {
 		PersonData contactDetails = null;
 		contactDetails = personService.updatePersonDta(ContactId, personDTO);
 		ResponseDTO respDTO = new ResponseDTO("updated address book data successfully", contactDetails);
@@ -50,6 +53,7 @@ public class PersonController {
 	}
 
 	/**
+	 * get all person list from DB
 	 * @return : ResponseDTO
 	 */
 	@RequestMapping("/getAll")
@@ -61,6 +65,7 @@ public class PersonController {
 	}
 
 	/**
+	 * get person details by id
 	 * @param id
 	 * @return : ResponseDTO
 	 */
@@ -73,7 +78,7 @@ public class PersonController {
 	}
 
 	/**
-	 * @DeleteMapping
+	 * delete person details by id
 	 * @param : contactId
 	 * @return : ResponseDTO
 	 */

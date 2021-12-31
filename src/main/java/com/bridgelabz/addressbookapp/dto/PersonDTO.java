@@ -2,10 +2,10 @@ package com.bridgelabz.addressbookapp.dto;
 
 import lombok.Data;
 
-/*
- * imported lombok library: @Data will auto create getter and setter,constructor,toString 
- * */
-
+/**
+ * @Data : Auto Generate getters and setters, constructor, toString
+ *
+ */
 public @Data class PersonDTO {
 
 	public String fName;

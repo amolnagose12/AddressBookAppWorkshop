@@ -6,13 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bridgelabz.addressbookapp.dto.PersonDTO;
-
 import com.bridgelabz.addressbookapp.model.PersonData;
 import com.bridgelabz.addressbookapp.repository.IPersonRepository;
 
 @Service
 public class PersonService implements IPersonService {
 
+	/**
+	 * @Autowired
+	 * Perform CRUD operation with DB
+	 */
 	@Autowired
 	private IPersonRepository personRepository;
 
@@ -52,9 +55,13 @@ public class PersonService implements IPersonService {
 	 */
 	@Override
 	public PersonData getPersonDataById(int id) {
-		return personRepository.findById((long) id).get();
+		return personRepository.findById(id).get();
 	}
 
+	/**
+	 * @param id
+	 * @return : void
+	 */
 	@Override
 	public void deletePersonData(int id) {
 		PersonData personData = this.getPersonDataById(id);

@@ -1,12 +1,10 @@
 package com.bridgelabz.addressbookapp.service;
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import com.bridgelabz.addressbookapp.dto.PersonDTO;
 import com.bridgelabz.addressbookapp.model.PersonData;
-
 
 @Service
 public interface IPersonService {
