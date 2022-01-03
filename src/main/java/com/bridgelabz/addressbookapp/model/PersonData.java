@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.bridgelabz.addressbookapp.dto.PersonDTO;
@@ -34,6 +36,10 @@ public @Data class PersonData {
 	private String state;
 	private String country;
 	private String profilePic;
+	
+	@ManyToOne
+	@JoinColumn(name = "add_id", referencedColumnName = "book_id")
+	private AddressBookModel addressBook;
 
 	public PersonData() {
 		super();
