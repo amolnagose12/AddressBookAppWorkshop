@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 import com.bridgelabz.addressbookapp.dto.AddressBookDTO;
 import com.bridgelabz.addressbookapp.model.AddressBookModel;
 
-
-
 @Service
 public interface IAddressBookService {
 
@@ -18,7 +16,7 @@ public interface IAddressBookService {
 
 	List<AddressBookModel> getAddressBookData();
 
-	AddressBookModel getAddressBookDataById(int id);
+	AddressBookModel getAddressBookDataById(int addressbookId);
 
-	void deleteAddressBookData(int id);
+	void deleteAddressBookData(int addressbookId);
 }

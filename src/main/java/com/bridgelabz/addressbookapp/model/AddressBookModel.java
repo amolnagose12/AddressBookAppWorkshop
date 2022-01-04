@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 import com.bridgelabz.addressbookapp.dto.AddressBookDTO;
 
 import lombok.Data;
@@ -13,15 +14,11 @@ import lombok.Data;
 public @Data class AddressBookModel {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "book_id")
 	private int bookId;
 	
 	private String addressBookName;
-	
-//	@OneToMany(targetEntity = PersonData.class, cascade = CascadeType.ALL)
-//	@JoinColumn(name = "add_id", referencedColumnName = "book_id")
-//	private List<PersonData> personList;
 
 	public AddressBookModel() {
 		super();

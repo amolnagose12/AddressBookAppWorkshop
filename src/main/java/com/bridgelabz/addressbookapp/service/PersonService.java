@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bridgelabz.addressbookapp.dto.PersonDTO;
+import com.bridgelabz.addressbookapp.exception.PersonException;
 import com.bridgelabz.addressbookapp.model.AddressBookModel;
 import com.bridgelabz.addressbookapp.model.PersonData;
 import com.bridgelabz.addressbookapp.repository.IAddressBookRepository;
 import com.bridgelabz.addressbookapp.repository.IPersonRepository;
-
 
 @Service
 public class PersonService implements IPersonService {
@@ -69,7 +69,8 @@ public class PersonService implements IPersonService {
 	 */
 	@Override
 	public PersonData getPersonDataById(int addressbookId, int personId) {
-		return personRepository.findById(personId).get();
+		return personRepository.findById(personId)
+				.orElseThrow(() -> new PersonException("User with User id " + personId + " does not exist !..."));
 	}
 
 	/**
